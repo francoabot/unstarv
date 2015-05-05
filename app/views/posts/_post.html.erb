@@ -1,0 +1,80 @@
+<li id="post-<%= post.id %>">
+  
+ 
+  <span class="content">
+    <strong><h4><%= post.title %>|  <a href="#" id="comenting"><span class="glyphicon glyphicon-align-left glyphicon-comment" aria-hidden="true"></span>
+  </a>
+  <a href="#"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+   <a href="#"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></h4></strong>
+   
+    <%= post.body %>
+    <%= image_tag post.picture.url if post.picture? %>
+  </span>
+  <span class="timestamp">
+    <small>Posted <%= time_ago_in_words(post.created_at) %> ago.</small>
+    <% if current_user?(post.user) %>
+      <%= link_to "delete", post, method: :delete,
+                                       data: { confirm: "You sure?" } %><a href="#"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+                                       <a href="#"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></a>
+                                        <a href="#"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span></a>
+                                         <a href="#"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+    <% end %>
+  </span>
+ 
+    
+    <br>
+
+    
+  
+
+  
+
+
+  
+
+<h5>Comments (<%= post.comments.count %>) 
+  <span class="glyphicon glyphicon-align-left glyphicon-comment" aria-hidden="true"></span>
+ 
+
+
+
+  </h5>
+
+  <div class="comentingform"> 
+  <h3>Post your opinion</h3>
+    <%= render 'shared/comment_form', post: post %>
+    <% if post.comments.count > 0 %> 
+     </div>
+
+   <% post.comments.each do |comment| %>
+      <% if comment != post.comments.at(post.comments.count) %>
+    <h4><small>Comment by <%=link_to comment.post.user.username, comment.user %></small></h4>
+    <span class="comment"><%= comment.body %></span>
+     <br/>
+    <em><span><small><strong><%=time_ago_in_words(comment.created_at) if !comment.created_at.nil?%> ago</strong></small>
+      <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+                                       <a href="#"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></a>
+                                        <a href="#"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span></a>
+    </span></em>
+    </li>
+    <br/>
+    <%end%>
+    <%end%>
+    <%end%>
+      
+   
+
+    
+    <script>
+    //$(document).ready(function(){   
+           $('.comentingform').hide();
+//$('.commentateur').hide();
+          $('#comenting').click( function(){
+              $('.comentingform').show(300);       
+           }); // end 
+      //;  end ready
+
+    </script>
+
+   
+  

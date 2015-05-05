@@ -1,0 +1,54 @@
+
+<% if logged_in? %>
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="user_info">
+        <%= render 'shared/user_info' %>
+      </section>
+      <hr/>
+      <br/>
+      <section class="stats">
+        <%= render 'shared/stats' %>
+      </section>
+   
+      <section class="post_form">
+        <%= render 'shared/post_form' %>
+      </section>
+      
+
+    </aside>
+    <div class="col-md-8">
+    <br>
+      <h3>Post Feed</h3>
+      <%= render 'shared/feed' %>
+    </div>
+  </div>
+<% else %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="center jumbotron">
+  <h1>Welcome to the Unstarv website</h1>
+
+  
+
+  <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary gradient" %>
+</div>
+
+<%= link_to image_tag("rails.png", alt: "unstarv logo"),
+            'http://rubyonrails.org/' %>
+
+
+            <% end %>

@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @post.title %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @post.body %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @post.user %>
+</p>
+
+<%= render partial: 'comments/form' %>
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>
+
+<h3>Comments (<%= @comments.size %>)</h3>
+   <ul>
+   <div>
+   <li>
+<% @comments.each do |comment| %>
+    <h4><small>Comment by</small> <%= comment.post.user.username %></h4>
+    <p class="comment"><%= comment.body %></p>
+    <p>Posted <%= distance_of_time_in_words(Time.now, comment.created_at) %> ago</p>
+    </li>
+    <br/>
+     <%end%>
+ 
