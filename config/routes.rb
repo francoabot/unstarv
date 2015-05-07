@@ -1,5 +1,17 @@
 Rails.application.routes.draw do
   
+  get 'groups/new'
+
+  get 'groups/create'
+
+  get 'groups/show'
+
+  get 'groups/edit'
+
+  get 'groups/update'
+
+  get 'groups/destroy'
+
   get 'signup' =>'users#new'
   
   resources :users do
@@ -19,7 +31,10 @@ Rails.application.routes.draw do
   delete 'logout'  => 'sessions#destroy'
   
   resources :posts  do
-    resources :comments
+      member { post :vote }
+    resources :comments do
+      member { post :vote }
+    end
     end
   
   resources :relationships,       only: [:create, :destroy]

@@ -6,8 +6,8 @@ class Post < ActiveRecord::Base
   validates :user_id, presence: true
   validates :body, presence: true, length: { minimum:40 }
   validate  :picture_size
-
-
+   
+   has_reputation :votes, source: :user, aggregated_by: :sum
     
   
   private

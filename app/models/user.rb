@@ -4,7 +4,6 @@ attr_accessor :remember_member
  groupify :named_group_member
 
 
-
 before_save { self.email = email.downcase }
 has_many :posts, dependent: :destroy
 has_many :comments, dependent: :destroy
@@ -51,6 +50,11 @@ has_many :followers, through: :passive_relationships, source: :follower
   # Returns true if the current user is following the other user.
   def following?(other_user)
     following.include?(other_user)
+  end
+
+  # l
+  def like(other_user)
+     
   end
   
 
