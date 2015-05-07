@@ -6,6 +6,7 @@
         <%= @user.username %>
         <br/>
         <%= @user.email%>
+        <div class="fb-follow" data-href="http://unstarv.herokuapp.com/" data-height="150" data-colorscheme="light" data-layout="standard" data-show-faces="true"></div>
       
     </section>
 
@@ -21,6 +22,7 @@
       <h3>Posts (<%= @user.posts.count %>)</h3>
       <ol class="posts">
         <%= render @posts %>
+        
       </ol>
       <%= will_paginate @posts %>
     <% end %>
