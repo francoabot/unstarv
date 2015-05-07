@@ -14,4 +14,6 @@ class HomeController < ApplicationController
   end
   def terms
   end
+  def rooms
+  end
 end

@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get 'groups/destroy'
 
   get 'signup' =>'users#new'
+  get 'rooms'  =>'home#rooms'
   
   resources :users do
     member do
