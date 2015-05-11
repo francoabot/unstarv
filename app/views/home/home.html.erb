@@ -41,11 +41,9 @@
 
 <div class="center jumbotron">
   <h1>Welcome to <%=link_to "Unstarv", about_path %> Alpha</h1>
-
-   
 <div class="fb-login-button" data-max-rows="1" data-size="xlarge" data-show-faces="true" data-auto-logout-link="true"></div>
-  <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary btn-active" %>
-</div>
+   
+<%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary btn-active" %>
 
 <%= link_to image_tag("rails.png", alt: "unstarv logo"),
             'http://rubyonrails.org/' %>
