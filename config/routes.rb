@@ -11,10 +11,16 @@ Rails.application.routes.draw do
   get 'groups/update'
 
   get 'groups/destroy'
+  get 'groups' => 'groups#index'
 
   get 'signup' =>'users#new'
   get 'rooms'  =>'home#rooms'
   
+   match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
+
+
+   devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks' }
+
   resources :users do
     member do
       get :following, :followers
@@ -37,7 +43,8 @@ Rails.application.routes.draw do
       member { post :vote }
     end
     end
-  
+
+  resources :groups
   resources :relationships,       only: [:create, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.

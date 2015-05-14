@@ -2,6 +2,7 @@ class CreateGroups < ActiveRecord::Migration
   def change
     create_table :groups do |t|
       t.string   :type      # Only needed if using single table inheritance
+      t.text     :description
     end
 
     create_table :group_memberships do |t|

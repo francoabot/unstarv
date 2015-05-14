@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150507040151) do
+ActiveRecord::Schema.define(version: 20150514211521) do
 
   create_table "comments", force: true do |t|
     t.string   "thor_name"
@@ -34,9 +34,24 @@ ActiveRecord::Schema.define(version: 20150507040151) do
   add_index "group_memberships", ["group_name"], name: "index_group_memberships_on_group_name"
   add_index "group_memberships", ["member_id", "member_type"], name: "index_group_memberships_on_member_id_and_member_type"
 
+  create_table "groupes", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "groups", force: true do |t|
     t.string "type"
   end
+
+  create_table "identities", force: true do |t|
+    t.integer  "user_id"
+    t.string   "provider"
+    t.string   "uid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "identities", ["user_id"], name: "index_identities_on_user_id"
 
   create_table "posts", force: true do |t|
     t.string   "title"
@@ -123,6 +138,7 @@ ActiveRecord::Schema.define(version: 20150507040151) do
     t.string   "remember_digest"
     t.boolean  "admin",           default: false
     t.string   "remember_token"
+    t.string   "name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
