@@ -155,7 +155,7 @@ Devise.setup do |config|
   # If true, expires auth token on session timeout.
   # config.expire_auth_token_on_timeout = false
 
-  config.omniauth :facebook, "FACEBOOK_APP_ID" , "FACEBOOK_SECRET"
+  config.omniauth :facebook, "1427074967594599" , "14591fbffa0f7b25606f0e6102635ac2"
   #config.omniauth :twitter, "KEY", "SECRET"
   #config.omniauth :linked_in, "KEY", "SECRET"
 

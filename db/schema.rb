@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150515011050) do
+ActiveRecord::Schema.define(version: 20150515201001) do
 
   create_table "comments", force: true do |t|
     t.string   "thor_name"
@@ -142,6 +142,8 @@ ActiveRecord::Schema.define(version: 20150515011050) do
     t.boolean  "admin",           default: false
     t.string   "remember_token"
     t.string   "name"
+    t.string   "provider"
+    t.string   "uid"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
