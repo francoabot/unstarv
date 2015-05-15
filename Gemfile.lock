@@ -220,7 +220,7 @@ DEPENDENCIES
   jquery-rails
   mini_magick (= 3.8.0)
   omniauth
-  omniauth-facebook (~> 1.5.1)
+  omniauth-facebook
   omniauth-linkedin
   omniauth-twitter
   pg (= 0.17.1)
