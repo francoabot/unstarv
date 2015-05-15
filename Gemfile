@@ -13,7 +13,7 @@ gem 'fog',                     '1.23.0'
 gem 'devise'
 
 gem 'omniauth-twitter'
-gem 'omniauth-facebook', '~> 2.0.0'
+gem 'omniauth-facebook', '~> 1.4.0'
 gem 'omniauth-linkedin'
 gem 'omniauth'
 
