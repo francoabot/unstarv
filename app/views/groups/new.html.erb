@@ -1,2 +1,37 @@
-<h1>Groups#new</h1>
-<p>Find me in app/views/groups/new.html.erb</p>
+<h1>Create a group</h1>
+
+
+
+<%= form_for(@group, html: { multipart: true }) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  
+  <div class="field">
+    <%= f.label :group_name, "Name your group" %>
+    <%= f.text_field :group_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :type, "Type of Group" %>
+    <%= f.select :type, Group::TYPE, prompt: "Select Group type" %>
+    
+  </div>
+ 
+  <br/>
+  
+  <div class="field">
+     <%= f.label :privacy_type, "Privacy Type" %>
+     <%= f.select :privacy_type, Group::PRIVACY_TYPE, prompt:"Select Privacy Type" %>
+     </div><br/><br>
+
+  <div class="field">
+    <%= f.label :description, "Describe your group" %>
+    <%= f.text_area :description %>
+  </div>
+
+    
+   
+
+  
+
+  <%= f.submit "Post", class: "btn btn-primary" %>
+<% end %>

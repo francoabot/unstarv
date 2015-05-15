@@ -4,7 +4,7 @@ Devise.setup do |config|
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
-  # config.secret_key = '6666a9be72dd2f0669a832f11eaf8ec0864aa755951b47c760890b56756060609ac8deb70b4ba9314348f2f8562b1f1708f576cfd69f81b825e61c0cb3ae07cf'
+  # config.secret_key = '7f0808823417e616a5e1e7f2e49914dcd26a893313a04052456ecce4959ed0d92e94d3e7546739cb6bc660a211d04ab597b52d8e3ecb9fe8b40e5462a354d4ee'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -19,9 +19,6 @@ Devise.setup do |config|
   # Load and configure the ORM. Supports :active_record (default) and
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
   # available as additional gems.
-  config.omniauth :facebook, "KEY", "SECRET"
-  config.omniauth :twitter, "KEY", "SECRET"
-  config.omniauth :linked_in, "KEY", "SECRET"
   require 'devise/orm/active_record'
 
   # ==> Configuration for any authentication mechanism
@@ -63,9 +60,6 @@ Devise.setup do |config|
   # enable it only for database authentication. The supported strategies are:
   # :database      = Support basic authentication with authentication key + password
   # config.http_authenticatable = false
-  config.omniauth :facebook, "KEY", "SECRET"
-  config.omniauth :twitter, "KEY", "SECRET"
-  config.omniauth :linked_in, "KEY", "SECRET"
 
   # If 401 status code should be returned for AJAX requests. True by default.
   # config.http_authenticatable_on_xhr = true
@@ -103,7 +97,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 10
 
   # Setup a pepper to generate the encrypted password.
-  # config.pepper = 'ee681fd59daff345871e6f1829d682ca779347436683889382f09f4bfab1b7a84a0c841ed616b3c6aed012eb70dc5ba66f24591ed39076c705b47cc9c8aecf02'
+  # config.pepper = '9e847b1d1eb8b284857df7e89d9af1926cfef268b402a3a7bfcbf4657138d933e426bf6f9c46bf2ff59fd0225270af0c8a93a00b77546287079e4795167e109b'
 
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without
@@ -160,6 +154,10 @@ Devise.setup do |config|
 
   # If true, expires auth token on session timeout.
   # config.expire_auth_token_on_timeout = false
+
+  config.omniauth :facebook, "1427074967594599", "14591fbffa0f7b25606f0e6102635ac2"
+  config.omniauth :twitter, "KEY", "SECRET"
+  config.omniauth :linked_in, "KEY", "SECRET"
 
   # ==> Configuration for :lockable
   # Defines which strategy will be used to lock an account.

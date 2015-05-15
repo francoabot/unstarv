@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150514211521) do
+ActiveRecord::Schema.define(version: 20150515011050) do
 
   create_table "comments", force: true do |t|
     t.string   "thor_name"
@@ -41,6 +41,9 @@ ActiveRecord::Schema.define(version: 20150514211521) do
 
   create_table "groups", force: true do |t|
     t.string "type"
+    t.text   "description"
+    t.string "group_name"
+    t.string "privacy_type"
   end
 
   create_table "identities", force: true do |t|

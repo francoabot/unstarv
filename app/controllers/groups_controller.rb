@@ -4,6 +4,7 @@ class GroupsController < ApplicationController
   end
 
   def create
+     @group = Group.create!(group_params)
     if @group.save
       flash.now[:success]= "Group #{@group.group_name} successfully created"
       redirect_to @group
@@ -31,15 +32,21 @@ end
   end
 
   def destroy
+    @group = Group.find(params[:id])
+    @group.destroy
+    flash.now[:success] = "Group #{@group.group_name} successfully destroyed"
   end
 
 
+private 
+
+def group_params
+params.require(:user).permit(:group_name,:type,:privacy_type,:description)
+
+end
 
 
-  private 
-  def group_params
-      params.require(:type, :group_name)
-  end
+ 
 end
 
 

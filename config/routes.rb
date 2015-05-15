@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   get 'groups/destroy'
   get 'groups' => 'groups#index'
-
+  get 'groups/new'
   get 'signup' =>'users#new'
   get 'rooms'  =>'home#rooms'
   
