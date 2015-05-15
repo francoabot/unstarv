@@ -45,7 +45,7 @@ Rails.application.configure do
   config.log_level = :info
 
   # General Settings
-  config.app_domain = 'unstarv.herokuapp.com'
+  config.app_domain = 'www.unstarv.herokuapp.com'
 
   # Email
   config.action_mailer.delivery_method = :smtp
@@ -58,7 +58,7 @@ Rails.application.configure do
     user_name: 'someuser',
     password: 'somepass',
     authentication: :plain,
-    domain: 'unstarv.herokuapp.com'
+    domain: 'www.unstarv.herokuapp.com'
   }
 
   # Prepend all log lines with the following tags.
