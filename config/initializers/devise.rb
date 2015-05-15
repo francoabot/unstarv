@@ -156,8 +156,8 @@ Devise.setup do |config|
   # config.expire_auth_token_on_timeout = false
 
   config.omniauth :facebook, "1427074967594599", "14591fbffa0f7b25606f0e6102635ac2"
-  config.omniauth :twitter, "KEY", "SECRET"
-  config.omniauth :linked_in, "KEY", "SECRET"
+  #config.omniauth :twitter, "KEY", "SECRET"
+  #config.omniauth :linked_in, "KEY", "SECRET"
 
   # ==> Configuration for :lockable
   # Defines which strategy will be used to lock an account.
