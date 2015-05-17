@@ -52,7 +52,7 @@ end
 group :production do
   gem 'pg',             '0.17.1'
   gem 'rails_12factor', '0.0.2'
-  gem 'activerecord-postgresql-adapter'
+ 
 end
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
