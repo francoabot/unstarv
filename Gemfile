@@ -15,7 +15,7 @@ gem 'devise'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'omniauth-linkedin'
-gem 'omniauth'
+
 
 gem 'activerecord-reputation-system', require: 'reputation_system'
 # Use sqlite3 as the database for Active Record
