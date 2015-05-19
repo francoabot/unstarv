@@ -13,13 +13,14 @@ Rails.application.routes.draw do
   get 'groups/destroy'
   get 'groups' => 'groups#index'
   get 'groups/new'
-  get 'signup' =>'users#new'
+  get 'signup' =>'devise/registrations#new'
   get 'rooms'  =>'home#rooms'
   
    match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
+   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
 
-   devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks' }
+  # devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks' }
 
   resources :users do
     member do
@@ -33,9 +34,9 @@ Rails.application.routes.draw do
   get 'privacy' => 'home#privacy'
   get 'about' => 'home#about'
   
-  get    'login'   => 'sessions#new'
-  post   'login'   => 'sessions#create'
-  delete 'logout'  => 'sessions#destroy'
+   get    'login'   => 'devise/sessions#new'
+  post   'login'   => 'devise/sessions#create'
+  delete 'logout'  => 'devise/sessions#destroy'
   
   resources :posts  do
       member { post :vote }

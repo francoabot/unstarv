@@ -45,6 +45,11 @@ Rails.application.configure do
   config.log_level = :info
 
   # General Settings
+
+  require 'mandrill'
+m = Mandrill::API.new # All official Mandrill API clients will automatically pull your API key from the environment
+rendered = m.templates.render 'MyTemplate', [{:name => 'main', :content => 'The main content block'}]
+puts rendered['html'] # print out the rendered HTML
   config.app_domain = 'unstarv.herokuapp.com'
 
   # Email
@@ -52,15 +57,15 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   host = 'unstarv.herokuapp.com'
   config.action_mailer.default_url_options = { host: host }
-  ActionMailer::Base.smtp_settings = {
-    :address        => 'smtp.sendgrid.net',
-    :port           => '587',
-    :authentication => :plain,
-    :user_name      => ENV['SENDGRID_USERNAME'],
-    :password       => ENV['SENDGRID_PASSWORD'],
-    :domain         => 'heroku.com',
-    :enable_starttls_auto => true
-  }
+ ActionMailer::Base.smtp_settings = {
+    :port =>           '587',
+    :address =>        'smtp.mandrillapp.com',
+    :user_name =>      ENV['MANDRILL_USERNAME'],
+    :password =>       ENV['MANDRILL_APIKEY'],
+    :domain =>         'heroku.com',
+    :authentication => :plain
+}
+ActionMailer::Base.delivery_method = :smtp
   # Prepend all log lines with the following tags.
   # config.log_tags = [ :subdomain, :uuid ]
 

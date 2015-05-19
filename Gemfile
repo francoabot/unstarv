@@ -15,6 +15,7 @@ gem 'devise'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'omniauth-linkedin'
+gem 'mandrill-api'
 
 
 gem 'activerecord-reputation-system', require: 'reputation_system'

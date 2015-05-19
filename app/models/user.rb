@@ -1,15 +1,56 @@
 class User < ActiveRecord::Base
-  
+
 
   TEMP_EMAIL_PREFIX = 'change@me'
   TEMP_EMAIL_REGEX = /\Achange@me/
 
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable
-  devise :database_authenticatable, :registerable, :confirmable,
+  devise :database_authenticatable, :registerable, 
     :recoverable, :rememberable, :trackable, :validatable, :omniauthable
-
+      :confirmable
   validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
+ groupify :group_member
+ groupify :named_group_member
+
+
+
+has_many :posts, dependent: :destroy
+has_many :comments, dependent: :destroy
+has_many :active_relationships, class_name:  "Relationship",
+                                  foreign_key: "follower_id",
+                                  dependent:   :destroy
+
+has_many :passive_relationships, class_name:  "Relationship",
+                                   foreign_key: "followed_id",
+                                   dependent:   :destroy
+
+
+
+has_many :following, through: :active_relationships, source: :followed  
+has_many :followers, through: :passive_relationships, source: :follower
+
+  # Follows a user.
+  def follow(other_user)
+    active_relationships.create(followed_id: other_user.id)
+  end
+
+  # Unfollows a user.
+  def unfollow(other_user)
+    active_relationships.find_by(followed_id: other_user.id).destroy
+  end
+
+  # Returns true if the current user is following the other user.
+  def following?(other_user)
+    following.include?(other_user)
+  end
+
+  # l
+  def like(other_user)
+     
+  end
+  
+
 
   def self.find_for_oauth(auth, signed_in_resource = nil)
 
@@ -36,11 +77,11 @@ class User < ActiveRecord::Base
       if user.nil?
         user = User.new(
           name: auth.extra.raw_info.name,
-          #username: auth.info.nickname || auth.uid,
+          username: auth.info.nickname || auth.uid,
           email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
           password: Devise.friendly_token[0,20]
         )
-        user.skip_confirmation!
+        user.skip_confirmation! if user.respond_to?(:skip_confirmation)
         user.save!
       end
     end
