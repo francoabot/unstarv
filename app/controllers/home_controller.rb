@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   def home
+    @user = User.new
       if logged_in?
       @post  = current_user.posts.build
       

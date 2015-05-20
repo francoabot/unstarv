@@ -15,6 +15,8 @@ class ApplicationController < ActionController::Base
       end
     end
 
+
+
      def ensure_signup_complete
     # Ensure we don't go into an infinite loop
     return if action_name == 'finish_signup'
@@ -25,4 +27,22 @@ class ApplicationController < ActionController::Base
       redirect_to finish_signup_path(current_user)
     end
   end
+
+
+    protected
+
+  def current_user
+    @current_user ||= User.find_by(id: session[:user_id])
+  end
+
+  def signed_in?
+    !!current_user
+  end
+  helper_method :current_user, :signed_in?
+
+  def current_user=(user)
+    @current_user = user
+    session[:user_id] = user.nil? ? nil : user.id
+  end
+  
 end
