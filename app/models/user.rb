@@ -30,6 +30,16 @@ has_many :passive_relationships, class_name:  "Relationship",
 has_many :following, through: :active_relationships, source: :followed  
 has_many :followers, through: :passive_relationships, source: :follower
 
+
+
+
+    def feed
+    following_ids = "SELECT followed_id FROM relationships
+                     WHERE  follower_id = :user_id"
+    Post.where("user_id IN (#{following_ids})
+                     OR user_id = :user_id", user_id: id)
+     end
+
   # Follows a user.
   def follow(other_user)
     active_relationships.create(followed_id: other_user.id)
@@ -45,7 +55,7 @@ has_many :followers, through: :passive_relationships, source: :follower
     following.include?(other_user)
   end
 
-  # l
+  # 
   def like(other_user)
      
   end

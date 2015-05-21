@@ -1,13 +1,15 @@
 class UsersController < ApplicationController
  before_action :set_user, only: [:show, :edit, :update, :destroy, :finish_signup]
+ before_action :authenticate_user! 
 
   def index
-    @users = User.all
+    @users = User.paginate(page: params[:page])
   end 
 
   # GET /users/:id.:format
   def show
-     authorize! :read, @user
+     #authorize! :read, @user
+     @user = User.find(params[:id])
     
   end
  

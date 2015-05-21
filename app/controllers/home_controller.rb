@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   def home
     @user = User.new
-      if logged_in?
+      if signed_in?
       @post  = current_user.posts.build
       
       @feed_items = current_user.feed.paginate(page: params[:page])
