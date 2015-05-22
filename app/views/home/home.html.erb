@@ -80,16 +80,16 @@
 </form>
 
 
-   <button type="submit" class="btn btn-primary">Facebook</button>
+   <button type="submit" class="btn btn-info">Login with Facebook</button>
    <br/>
    <br/>
-     <button type="submit" class="btn btn-primary">Linked In</button>
+     <button type="submit" class="btn btn-primary">Login with Twitter </button>
     <br/>
     <br/>
-     <button type="submit" class="btn btn-primary">Twitter</button>
+     <button type="submit" class="btn btn-info">Login with LinkedIn</button>
      <br/>
      <br/>
-        <button type="submit" class="btn btn-primary">Google</button>
+        <button type="submit" class="btn btn-primary btn-warning">Login with Google</button>
        <br/>
        
 </div>
@@ -98,7 +98,7 @@
 
 <section>
  
- <h2>Join <%= User.all.count%> artists</h2>
+ <h2>Join <%= [2000, User.all.count].max %> + artists</h2>
 <div class="row">
 <div class="fb-like"
     data-share="true"
