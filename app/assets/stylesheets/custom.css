@@ -6,6 +6,7 @@
 
 
 
+
 /*!
  * bootswatch v3.3.4+1
  * Homepage: http://bootswatch.com
@@ -20,7 +21,10 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 body {
+
   margin: 0;
+  background: url('/assets/water.jpg');
+  background-repeat: no-repeat;
 }
 article,
 aside,
@@ -6766,9 +6770,11 @@ margin-right: auto ;
 
 .inline{
    display: inline-block;
+
 }
 
 .center{
   text-align: center;
+
   
 }
