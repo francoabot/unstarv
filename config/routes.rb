@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'home#home' 
   
   get 'groups/new'
 
@@ -20,7 +21,8 @@ Rails.application.routes.draw do
   
    match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
    devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
-
+   
+ 
 
   # devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks' }
 get 'users/show'
@@ -31,14 +33,12 @@ get 'users/show'
   end
  
 
-  root 'home#home' 
+  
   get 'terms' => 'home#terms'
   get 'privacy' => 'home#privacy'
   get 'about' => 'home#about'
   
-   get    'login'   => 'devise/sessions#new'
-  post   'login'   => 'devise/sessions#create'
-  delete 'logout'  => 'devise/sessions#destroy'
+    
   
   resources :posts  do
       member { post :vote }

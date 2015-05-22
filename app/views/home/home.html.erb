@@ -1,4 +1,9 @@
 
+
+
+<div class ="wrap">
+
+
 <% if user_signed_in? %>
   <div class="row">
     <aside class="col-md-4">
@@ -17,44 +22,55 @@
       
 
     </aside>
-    <div class="col-md-8">
+    <section class="post_feed">
     <br>
       <h3>Post Feed</h3>
       <%= render 'shared/feed' %>
+      </section>
     </div>
   </div>
 <% else %>
 
-   <div class="row">           
-<aside class="col-md-4">
- <h2>Unstarv Alpha terms</h2>
- <iframe src="terms" width= "100%" height= "600"></iframe>
-  <!--<iframe src="users/sign_up#signup" width= "100%" height= "600"></iframe>-->
- 
-    <section>
-</section>
-    <section></section>
+            
+
+    
 
 
       
 </aside>
-<div class= "col-md-4">
+
+
+<div class="row">
+<div class="fb-like"
+    data-share="true"
+    data-width="450"
+   data-show-faces="true"></div>
+ 
+ <h3 class = "center">Join <%= [2000, User.all.count].max %>+ artists.<hr></h2>
+
+
+<br/>
+<br/>
   
-   <h2>Sign up/Sign in</h2>
+   
  <!-- <iframe src="terms" width= "100%" height= "600"></iframe>-->
  <form class="form-horizontal">
   <fieldset>
    
     <div class="form-group">
-      <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+      
       <div class="col-lg-10">
         <input type="text" class="form-control" id="inputEmail" placeholder="Email">
+        <br/>
+        <br/>
       </div>
-    </div>
-    <div class="form-group">
-      <label for="inputPassword" class="col-lg-2 control-label">Password</label>
+   
+    </br>
+   
       <div class="col-lg-10">
         <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+        <br/>
+        <br/>
           <input type="password" class="form-control" id="inputPassword" placeholder="Password">
         <div class="checkbox">
           <label>
@@ -76,43 +92,29 @@
       </div>
     </div>
   </fieldset>
+  <h3 class= "center"> Social Media</h3><hr>
 
 </form>
 
-
+     <div class = "inline">
    <button type="submit" class="btn btn-info"><i class="fa fa-facebook"></i>  Login with Facebook</button>
-   <br/>
-   <br/>
+  
      <button type="submit" class="btn btn-primary"><i class="fa fa-twitter"></i>  Login  with  Twitter   </button>
-    <br/>
-    <br/>
+    
      <button type="submit" class="btn btn-default"><i class="fa fa-linkedin"></i>  Login  with  LinkedIn</button>
-     <br/>
-     <br/>
+   
         <button type="submit" class="btn btn-primary btn-warning"><i class="fa fa-google"></i>  Login with Google  </button>
-       <br/>
        
+       </div>
 </div>
 
-<div class= "col-md-4">
 
-<section>
- 
- <h2>Join <%= [2000, User.all.count].max %> + artists</h2>
-<div class="row">
-<div class="fb-like"
-    data-share="true"
-    data-width="450"
-   data-show-faces="true"></div>
 
- 
-
-</section>
 
   
 
 
-</div>
+
 </section>
 </div>
 <%end%>
@@ -120,7 +122,7 @@
 
 
 
-
+</div>
 
 
 

@@ -6753,3 +6753,22 @@ button.close {
   background-color: #f5f5f5;
 
 }
+
+
+.wrap{
+display: inline-block
+text-align: center ;
+
+width:75%;
+margin-left: auto ;
+margin-right: auto ;
+}
+
+.inline{
+   display: inline-block;
+}
+
+.center{
+  text-align: center;
+  
+}

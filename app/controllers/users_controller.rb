@@ -15,7 +15,7 @@ class UsersController < ApplicationController
  
   # GET /users/:id/edit
   def edit
-    authorize! :update, @user
+    #authorize! :update, @user
   end
   def new
     @user = User.new
@@ -23,7 +23,7 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/:id.:format
   def update
-     authorize! :update, @user
+     #authorize! :update, @user
     respond_to do |format|
       if @user.update(user_params)
         sign_in(@user == current_user ? @user : current_user, :bypass => true)
