@@ -52,7 +52,7 @@ Rails.application.configure do
   # Email
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
-  host = 'https://unstarv.herokuapp.com'
+  host = 'unstarv.herokuapp.com'
   config.action_mailer.default_url_options = { host: host }
  ActionMailer::Base.smtp_settings = {
     :port =>           '587',
