@@ -24,10 +24,10 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   
   def after_sign_in_path_for(resource)
     #if resource.email_verified?
-    if cookies[:oA] =+ true
+    if cookies[:oA] == true
       super resource
       current_user = @user
-      redirect_to current_user_path(resource)
+      redirect_to root_path
     end
     #else
      # finish_signup_path(resource)
