@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get 'groups/destroy'
   get 'groups' => 'groups#index'
   get 'groups/new'
+  get 'temp'  => 'groups#template'
   get 'signup' =>'devise/registrations#new'
   get 'rooms'  =>'home#rooms'
   get 'terms'  =>'home#terms'

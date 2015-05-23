@@ -4,6 +4,10 @@ class GroupsController < ApplicationController
     @group = Group.new
   end
 
+  def template
+
+  end
+
   def create
      @group = Group.create!(group_params)
     if @group.save

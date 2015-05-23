@@ -1,9 +1,3 @@
-
-
-
-<div class ="wrap">
-
-
 <% if user_signed_in? %>
  <div class="row submenu">  <div class="panel panel-primary">
   <div class="panel-heading">
@@ -11,7 +5,7 @@
   </div>
   <div class="panel-body">
      
-        <%= render 'shared/post_form' %> | Latest unchecked feedback
+        
       
   </div>
 </div>
@@ -19,18 +13,19 @@
 </div></div>
  <div class="row feed">
    <ul class="nav nav-tabs">
-  <li class="active"><a href="#home" data-toggle="tab">My Projects</a></li>
-  <li><a href="#profile" data-toggle="tab">My Rooms</a></li>
-   <li><a href="#profile" data-toggle="tab">My Groups</a></li>
+  <li class="active"><a href="#home" data-toggle="tab">Group Projects</a></li>
+  <li><a href="#profile" data-toggle="tab">Join Requests</a></li>
+   <li><a href="#profile" data-toggle="tab">Group members</a></li>
+  
   
   <li class="dropdown">
     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-      Account <span class="caret"></span>
+      Settings <span class="caret"></span>
     </a>
     <ul class="dropdown-menu">
-      <li><a href="#dropdown1" data-toggle="tab">Edit Account</a></li>
+      <li><a href="#dropdown1" data-toggle="tab">Edit Group</a></li>
       <li class="divider"></li>
-      <li><a href="#dropdown2" data-toggle="tab">Boost Account</a></li>
+      <li><a href="#dropdown2" data-toggle="tab">Archive Group</a></li>
     </ul>
   </li>
 </ul>
@@ -72,135 +67,4 @@
     </div>
   </div>
 </div>
-
-
-
-
-
-  <div class="row">
-    <aside class="col-md-4">
-      <section class="user_info">
-        <%= render 'shared/user_info' %>
-      </section>
-      <hr/>
-      <br/>
-      <section class="stats">
-        <%= render 'shared/stats' %>
-      </section>
-   
-     
-      
-
-    </aside>
-    <section class="post_feed">
-    <br>
-      <h3>Post Feed</h3>
-      <%= render 'shared/feed' %>
-      </section>
-    </div>
-  </div>
-<% else %>
-
-            
-
-    
-
-
-      
-</aside>
-
-
-<div class="row">
-<div class="fb-like"
-    data-share="true"
-    data-width="450"
-   data-show-faces="true"></div>
- 
- <h3 class = "center">Join <%= [2000, User.all.count].max %>+ artists.<hr></h2>
-
-
-<br/>
-<br/>
-  
-   
- <!-- <iframe src="terms" width= "100%" height= "600"></iframe>-->
- <form class="form-horizontal">
-  <fieldset>
-   
-    <div class="form-group">
-      
-      <div class="col-lg-10">
-        <input type="text" class="form-control" id="inputEmail" placeholder="Email">
-        <br/>
-        <br/>
-      </div>
-   
-    </br>
-   
-      <div class="col-lg-10">
-        <input type="password" class="form-control" id="inputPassword" placeholder="Password">
-        <br/>
-        <br/>
-          <input type="password" class="form-control" id="inputPassword" placeholder="Password">
-        <div class="checkbox">
-          <label>
-            <input type="checkbox"> I agree to the terms and conditions.
-          </label>
-        </div>
-      </div>
-    </div>
-    
-   
-    
-         
-  
-    <div class="form-group">
-      <div class="col-lg-10 col-lg-offset-2">
-        <button type="reset" class="btn btn-default">Log in</button>
-        <button type="submit" class="btn btn-primary">Sign up</button>
-        
-      </div>
-    </div>
-  </fieldset>
-  <hr>
-  <br/>
-
-</form>
-
-     <div class = "inline">
-   <button type="submit" class="btn btn-info"><i class="fa fa-facebook"></i>  Login with Facebook</button>
-  
-     <button type="submit" class="btn btn-primary"><i class="fa fa-twitter"></i>  Login  with  Twitter   </button>
-    
-     <button type="submit" class="btn btn-default"><i class="fa fa-linkedin"></i>  Login  with  LinkedIn</button>
-   
-        <button type="submit" class="btn btn-primary btn-warning"><i class="fa fa-google"></i>  Login with Google  </button>
-       
-       </div>
-</div>
-
-
-
-
-  
-
-
-
-</section>
-</div>
 <%end%>
-
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-
