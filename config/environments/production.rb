@@ -47,19 +47,19 @@ Rails.application.configure do
   # General Settings
 
 # print out the rendered HTML
-  config.app_domain = 'unstarv.herokuapp.com'
+  config.app_domain = 'http//:wwww.unstarv.herokuapp.com'
 
   # Email
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
-  host = 'unstarv.herokuapp.com'
+  host = 'http//:www.unstarv.herokuapp.com'
   config.action_mailer.default_url_options = { host: host }
  ActionMailer::Base.smtp_settings = {
     :port =>           '587',
     :address =>        'smtp.mandrillapp.com',
     :user_name =>      ENV['MANDRILL_USERNAME'],
     :password =>       ENV['MANDRILL_APIKEY'],
-    :domain =>         'heroku.com',
+    :domain =>         'http//:www.unstarv.heroku.com',
     :authentication => :plain
 }
 ActionMailer::Base.delivery_method = :smtp
