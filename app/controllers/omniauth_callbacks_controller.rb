@@ -7,7 +7,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
         if @user.persisted?
           sign_in_and_redirect @user, event: :authentication
-          cookies[:oA] = true
+          
           set_flash_message(:notice, :success, kind: "#{provider}".capitalize) if is_navigational_format?
           
         else
@@ -24,10 +24,10 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   
   def after_sign_in_path_for(resource)
     #if resource.email_verified?
-    if cookies[:oA] == true
+    
       super resource
       current_user = @user
-      redirect_to root_path
+     
     end
     #else
      # finish_signup_path(resource)
