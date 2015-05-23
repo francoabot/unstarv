@@ -28,7 +28,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
       super resource
       current_user = @user
      
-    end
+    #end
     #else
      # finish_signup_path(resource)
     #end
