@@ -6770,16 +6770,18 @@ margin-right: auto ;
 
 .inline{
    display: inline-block;
+   clear: both;
 
 }
 
 .center{
   text-align: center;
-  position: center
+ 
 
   
 }
 
-a {
+.face-btn {
 color: #FFF !important;
 }
+
