@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   def show
      #authorize! :read, @user
      @user = User.find(params[:id])
+      @posts = @user.posts.paginate(page: params[:page])
     
   end
  

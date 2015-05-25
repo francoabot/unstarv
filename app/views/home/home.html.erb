@@ -5,19 +5,25 @@
 
 
 <% if user_signed_in? %>
- <div class="row submenu">  <div class="panel panel-primary">
+ <div class="row submenu">  <div class="panel panel-primary col-lg-18">
   <div class="panel-heading">
     <h3 class="panel-title">Hi <%= current_user.username %><%= current_user.email%> | <%= render 'shared/stats' %> | Your score is : | You belong to x groups | X invites pending</h3>
   </div>
   <div class="panel-body">
      
-        <%= render 'shared/post_form' %> | Latest unchecked feedback
-      
+        <%= render 'shared/post_form' %><br/> | Latest unchecked feedback
+      <br/>
+      <br>
+
   </div>
 </div>
 
+
+
+
 </div></div>
  <div class="row feed">
+ <br><br>
    <ul class="nav nav-tabs">
   <li class="active"><a href="#home" data-toggle="tab">My Projects</a></li>
   <li><a href="#profile" data-toggle="tab">My Rooms</a></li>
@@ -34,6 +40,8 @@
     </ul>
   </li>
 </ul>
+<br>
+<br>
 <div id="myTabContent" class="tab-content">
   <div class="tab-pane fade active in" id="home">
     <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
@@ -78,20 +86,18 @@
 
 
   <div class="row">
-    <aside class="col-md-4">
+    
       <section class="user_info">
         <%= render 'shared/user_info' %>
       </section>
-      <hr/>
-      <br/>
+      
       <section class="stats">
         <%= render 'shared/stats' %>
       </section>
    
-     
-      
+ 
 
-    </aside>
+    
     <section class="post_feed">
     <br>
       <h3>Post Feed</h3>

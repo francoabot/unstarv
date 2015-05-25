@@ -17,7 +17,7 @@
   </span>
   <span class="timestamp">
     <small>Posted <%= time_ago_in_words(post.created_at) %> ago.</small>
-    <% if current_user?(post.user) %>
+    <% if current_user == post.user %>
       <%= link_to  post, method: :delete,
                                        data: { confirm: "You sure?" }  do %>
         <i class="glyphicon glyphicon-trash"></i>
