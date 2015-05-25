@@ -6775,6 +6775,11 @@ margin-right: auto ;
 
 .center{
   text-align: center;
+  position: center
 
   
+}
+
+a {
+color: #FFF !important;
 }

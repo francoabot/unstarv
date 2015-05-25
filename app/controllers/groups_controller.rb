@@ -3,6 +3,9 @@ class GroupsController < ApplicationController
   def new
     @group = Group.new
   end
+  def index
+    @groups = Group.all
+  end
 
   def template
 
@@ -11,7 +14,7 @@ class GroupsController < ApplicationController
   def create
      @group = Group.create!(group_params)
     if @group.save
-      flash.now[:success]= "Group #{@group.group_name} successfully created"
+      flash[:success]= "Group #{@group.group_name} successfully created"
       redirect_to @group
     else
       render 'new'
