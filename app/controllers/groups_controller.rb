@@ -1,8 +1,8 @@
 class GroupsController < ApplicationController
   before_action :authenticate_user! 
-  def new
-    @group = Group.new
-  end
+
+
+ 
   def index
     @groups = Group.all
   end
@@ -10,10 +10,15 @@ class GroupsController < ApplicationController
   def template
 
   end
+   
+    def new
+    @group = Group.new
+   end
 
   def create
-     @group = Group.create!(group_params)
-    if @group.save
+    @group = Group.new(group_params)
+     if @group.save
+   
       flash[:success]= "Group #{@group.group_name} successfully created"
       redirect_to @group
     else
@@ -49,7 +54,7 @@ end
 private 
 
 def group_params
-params.require(:user).permit(:group_name,:type,:privacy_type,:description)
+params.require(:group).permit(:group_name,:type,:privacy_type,:description)
 
 end
 

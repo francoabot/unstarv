@@ -27,16 +27,22 @@
     </tr>
   </thead>
   <tbody>
+  <% @groups.each do |group| %>
+  
+   
     <tr>
       <td>1</td>
-      <td>Column content</td>
-      <td>Column content</td>
-      <td>Column content</td>
-      <td>Column content</td>
-      <td>Column content</td>
-      <td>Column content</td>
-      <td>Column content</td>
-      <td>Column content</td>
+      <td> <%= group.group_name %></td>
+      <td><%= group.score %></td>
+      <td><%= group.expertise %></td>
+      <td>Join|Leave</td>
+      <td>Vote</td>
+      <td><%= group.type %></td>
+      <td><%= group.country %></td>
+      <td><%= group.state %></td>
+      <td>Created</td>
+      <td>Admin</td>
+     
       <td></td>
      
     </tr>
@@ -57,6 +63,5 @@
       <td>Column content</td>
       <td>Column content</td>
       <td>Column content</td>
- <% @groups.each do |group| %>
-   <%= group.name %>
-   <%end%>
+
+      <%end%>

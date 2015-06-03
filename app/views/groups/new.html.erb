@@ -15,8 +15,23 @@
     <%= f.select :type, Group::TYPE, prompt: "Select Group type" %>
     
   </div>
+
+  <div class="field">
+    <%= f.label :category, "Artistic Category" %>
+    <%= f.select :category, Group::CATEGORY, prompt: "Select artistic category" %> 
+  </div>
  
   <br/>
+
+  <div class="field">
+    <%= f.label :country, "Select Country" %>
+    <%= f.select :country, Group::COUNTRY, prompt: "Select country" %> 
+  </div>
+
+   <div class="field">
+    <%= f.label :country, "Select City" %>
+    <%= f.select :country, Group::CITY, prompt: "Select State" %> 
+  </div>
   
   <div class="field">
      <%= f.label :privacy_type, "Privacy Type" %>
