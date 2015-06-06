@@ -31,7 +31,10 @@ has_many :following, through: :active_relationships, source: :followed
 has_many :followers, through: :passive_relationships, source: :follower
 
 
-
+    def soft_delete
+    # assuming you have deleted_at column added already
+    update_attribute(:deleted_at, Time.current)
+    end
 
     def feed
     following_ids = "SELECT followed_id FROM relationships

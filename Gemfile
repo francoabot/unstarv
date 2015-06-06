@@ -17,6 +17,7 @@ gem 'omniauth-facebook'
 gem 'omniauth-linkedin'
 gem 'mandrill-api'
  gem 'kendoui-rails'
+gem 'country_state_select'
 
 
 gem 'activerecord-reputation-system', require: 'reputation_system'

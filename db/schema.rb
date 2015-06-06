@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150531010006) do
+ActiveRecord::Schema.define(version: 20150604030336) do
 
   create_table "comments", force: true do |t|
     t.string   "thor_name"
@@ -20,6 +20,11 @@ ActiveRecord::Schema.define(version: 20150531010006) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "countries", force: true do |t|
+    t.string "iso"
+    t.string "name"
   end
 
   create_table "group_memberships", force: true do |t|
@@ -130,6 +135,12 @@ ActiveRecord::Schema.define(version: 20150531010006) do
   add_index "rs_reputations", ["reputation_name"], name: "index_rs_reputations_on_reputation_name"
   add_index "rs_reputations", ["target_id", "target_type"], name: "index_rs_reputations_on_target_id_and_target_type"
 
+  create_table "states", force: true do |t|
+    t.string  "name"
+    t.integer "country_id"
+    t.string  "iso"
+  end
+
   create_table "users", force: true do |t|
     t.string   "firtname"
     t.string   "lastName"
@@ -162,6 +173,8 @@ ActiveRecord::Schema.define(version: 20150531010006) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.integer  "sign_in_count"
+    t.datetime "deleted_at"
+    t.integer  "score",                default: 0
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

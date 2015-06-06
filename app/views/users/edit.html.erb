@@ -22,31 +22,34 @@
       <%= f.email_field :email, class: 'form-control' %>
       <br/>
 
-     
 
-       <%= f.label :country %>
-      <%= f.text_field :country, class: 'form-control' %>
+       <%= f.label :password %>
+      <%= f.password_field :password, class: 'form-control' %>
       <br/>
 
-       <%= f.label :state %>
-      <%= f.text_field :state, class: 'form-control' %>
+      <%= f.label :password_confirmation, "Password Confirmation" %>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
       <br/>
 
-       <%= f.label :city %>
-      <%= f.text_field :city, class: 'form-control' %>
-      <br/>
+         
+      <%= f.label :country, "Country" %>
+       <%= f.select :country, CountryStateSelect::Constant::COUNTRIES, {}, id: 'country_id', class: 'form-control' %>
+      </br>
+
+
+      <%= f.label :state, "Your State" %>
+       <%= f.text_field :state ,:id=> 'state_name', class: 'form-control' %>
+      </br>
+      <br>
+      
+
+       
 
        <%= f.label :industry %>
       <%= f.text_field :industry, class: 'form-control' %>
       <br/>
 
-      <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control' %>
-      <br/>
-
-      <%= f.label :password_confirmation, "Confirmation" %>
-      <%= f.password_field :password_confirmation, class: 'form-control' %>
-      <br/>
+     
 
       <%= f.submit "Save changes", class: "btn btn-primary" %>
     <% end %>

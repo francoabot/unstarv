@@ -5,48 +5,85 @@
 <%= form_for(@group, html: { multipart: true }) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   
-  <div class="field">
-    <%= f.label :group_name, "Name your group" %>
-    <%= f.text_field :group_name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :type, "Type of Group" %>
-    <%= f.select :type, Group::TYPE, prompt: "Select Group type" %>
-    
-  </div>
-
-  <div class="field">
-    <%= f.label :category, "Artistic Category" %>
-    <%= f.select :category, Group::CATEGORY, prompt: "Select artistic category" %> 
-  </div>
- 
-  <br/>
-
-  <div class="field">
-    <%= f.label :country, "Select Country" %>
-    <%= f.select :country, Group::COUNTRY, prompt: "Select country" %> 
-  </div>
+    <div class="field">
+  <div class="col-lg-10">
+   
+    <%= f.text_field :group_name, autofocus: true, class: 'form-control', placeholder: 'Name your group' %>
+    <br>
+    <br>
+   </div>
+   </div>
+  
+  
+  
 
    <div class="field">
-    <%= f.label :country, "Select City" %>
-    <%= f.select :country, Group::CITY, prompt: "Select State" %> 
-  </div>
-  
-  <div class="field">
-     <%= f.label :privacy_type, "Privacy Type" %>
-     <%= f.select :privacy_type, Group::PRIVACY_TYPE, prompt:"Select Privacy Type" %>
-     </div><br/><br>
+  <div class="col-lg-10">
+    
+    <%= f.select :country, CountryStateSelect::Constant::COUNTRIES, {}, prompt: "Select artistic category", id: 'country_id', autofocus: true, class: 'form-control' %>
+    <br>
+    <br>
+    </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :description, "Describe your group" %>
-    <%= f.text_area :description %>
+     <div class="field">
+  <div class="col-lg-10">
+    
+    <%= f.text_field :state ,:id=> 'state', autofocus: true, class: 'form-control', placeholder: " State for group if it applies" %> 
+    <br>
+    <br>
   </div>
+  </div>
+
+ 
+
+    <div class="field">
+  <div class="col-lg-10">
+    
+    <%= f.text_area :description, autofocus: true, class: 'form-control', placeholder: "Describe your group" %> 
+   <br/>
+   <br/>
+   </div>
+   </div>
+
+
+     <div class="field">
+  <div class="col-lg-10">
+    
+    <%= f.select :type, Group::TYPE, prompt: "Select Group type", autofocus: true, class: 'form-control' %>
+    <br>
+    <br>
+    </div>
+    </div>
+  
+     <div class="field">
+  <div class="col-lg-10">
+ 
+    
+    <%= f.select :category, Group::CATEGORY, prompt: "Select artistic category", autofocus: true, class: 'form-control' %> 
+  <br>
+  <br>
+   </div>
+   </div>
+   
+
+     <div class="field">
+  <div class="col-lg-10">
+ 
+     
+     <%= f.select :privacy_type, Group::PRIVACY_TYPE, prompt:"Select Privacy Type", autofocus: true, class: 'form-control' %> 
+     <br>
+     <br>
+    </div>
+    </div>
+
+
 
     
    
-
+<div class="col-lg-10">
   
 
   <%= f.submit "Post", class: "btn btn-primary" %>
 <% end %>
+</div>
