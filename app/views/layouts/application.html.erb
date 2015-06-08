@@ -17,13 +17,15 @@
     
     
     
-    <div class="container">
+     <div class="views"> 
     <% flash.each do |message_type, message| %>
-        <div class="alert alert-<%= message_type %>"><%= message %></div>
+        <span class="alert alert-<%= message_type %>"><%= message %></span>
       <% end %>
-      <%= yield %>
-      
+     
+      <%= yield %> 
     </div>
+
+
     <%= render 'layouts/footer' %>
   </body>
 </html>

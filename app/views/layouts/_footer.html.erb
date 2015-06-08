@@ -7,10 +7,10 @@
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="#">About <span class="sr-only">(current)</span></a></li>
+        <li><%= link_to "About", about_path %> <span class="sr-only">(current)</span></li>
       
-       <li><a href="#">Privacy</a></li>
-       <li><a href="#">Terms</a></li>
+       <li><%=link_to"Privacy", privacy_path %></li>
+       <li><%= link_to "Terms", terms_path %></li>
       <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
       <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
       <li><a href="#"><i class="fa fa-google-plus-square"></i></a></li>
@@ -36,6 +36,6 @@
 
     <ul class="nav navbar-nav navbar-right">
      
-      <li><a href="www.weareiot.co"><i class="glyphicon glyphicon-king"></i>Original Code and design by WeAreIoT team </a></li>
+      <li><i class="glyphicon glyphicon-king"></i><%= link_to "Code by WeAreIoT Team", "http://www.weareiot.co" %></li>
      </ul>
 </div>
