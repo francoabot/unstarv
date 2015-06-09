@@ -7,6 +7,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
         if @user.persisted?
           sign_in @user, event: :authentication
+          
 
           redirect_to root_path, event: :authentication
           
