@@ -29,12 +29,27 @@ has_many :passive_relationships, class_name:  "Relationship",
 
 has_many :following, through: :active_relationships, source: :followed  
 has_many :followers, through: :passive_relationships, source: :follower
+    
+    def active_for_authentication?
+     super && !!active
+     end
+    
+    def active?
+     !!active
+    end
 
+    def inactive_message
+     "Sorry, this account has been deactivated."
+    end
 
     def soft_delete
     # assuming you have deleted_at column added already
     update_attribute(:deleted_at, Time.current)
+    update_attribute(:active, :false)
+
     end
+
+    
 
     def feed
     following_ids = "SELECT followed_id FROM relationships

@@ -3,7 +3,7 @@ class UsersController < ApplicationController
  before_action :authenticate_user! 
 
   def index
-    @users = User.all
+    @users = User.all.where(active: true)
   end 
 
   # GET /users/:id.:format

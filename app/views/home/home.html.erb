@@ -10,22 +10,15 @@
     <h3 class="panel-title">Hi <%= current_user.username %><%= current_user.email%> | <%= render 'shared/stats' %> | Your score is : | You belong to x groups | X invites pending</h3>
   </div>
   <div class="panel-body">
-     
-        <%= render 'shared/post_form' %><br/> | Latest unchecked feedback
+         
+        
       <br/>
-      <br>
-
-  </div>
-</div>
 
 
-
-
-</div></div>
- <div class="row feed">
+     <div class="row feed">
  <br><br>
    <ul class="nav nav-tabs">
-  <li class="active"><a href="#home" data-toggle="tab">My Projects</a></li>
+  <li class="active"><a href="#home" data-toggle="tab">My Posts</a></li>
   <li><a href="#profile" data-toggle="tab">My Rooms</a></li>
    <li><a href="#profile" data-toggle="tab">My Groups</a></li>
   
@@ -44,18 +37,118 @@
 <br>
 <div id="myTabContent" class="tab-content">
   <div class="tab-pane fade active in" id="home">
-    <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
+      <%= render 'shared/post_form' %><br/> 
+      <br>
+      
+      <%= render 'shared/feed' %>
   </div>
   <div class="tab-pane fade" id="profile">
-    <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit.</p>
+    <p></p>
   </div>
+
+
+
+
+
   <div class="tab-pane fade" id="dropdown1">
-    <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork.</p>
+    
+    
+<h1 class= "center">Update your profile</h1>
+    <div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@user) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <%= f.label :username %>
+      <%= f.text_field :username, class: 'form-control' %>
+       <br/>
+
+      <%= f.label :firtname, "First Name"%>
+      <%= f.text_field :firtname, class: 'form-control' %>
+      <br/>
+
+      <%= f.label :lastName, "Last Name" %>
+      <%= f.text_field :lastName, class: 'form-control' %>
+      <br/>
+
+        <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control' %>
+      <br/>
+
+
+       <%= f.label :password %>
+      <%= f.password_field :password, class: 'form-control' %>
+      <br/>
+
+      <%= f.label :password_confirmation, "Password Confirmation" %>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
+      <br/>
+
+         
+      <%= f.label :country, "Country" %>
+       <%= f.select :country, CountryStateSelect::Constant::COUNTRIES, {}, id: 'country_id', class: 'form-control' %>
+      </br>
+
+
+      <%= f.label :state, "Your State" %>
+       <%= f.text_field :state ,:id=> 'state_name', class: 'form-control' %>
+      </br>
+      <br>
+      
+
+       
+
+       <%= f.label :industry %>
+      <%= f.text_field :industry, class: 'form-control' %>
+      <br/>
+
+     
+
+      <%= f.submit "Save changes", class: "btn btn-primary" %>
+    <% end %>
+<br>
+<br>
+<br>
+<br>
+    
+    </div>
+
+
+
   </div>
+
+</div>
+
+
+
+
+
+
+
   <div class="tab-pane fade" id="dropdown2">
-    <p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater.</p>
+    <p>Here are tips to boost your account</p>
+  </div>
+
+
+
+
+
+
+</div>
+
+
+
+
+
+      <br>
+
   </div>
 </div>
+
+
+
+
+</div></div>
 
 
  </div>
@@ -63,28 +156,11 @@
 
 
 
-<div class="modal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h4 class="modal-title">Modal title</h4>
-      </div>
-      <div class="modal-body">
-        <p>One fine body…</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
 
 
 
 
-
+<!--
   <div class="row">
     
       <section class="user_info">
@@ -101,10 +177,11 @@
     <section class="post_feed">
     <br>
       <h3>Post Feed</h3>
-      <%= render 'shared/feed' %>
+      
       </section>
     </div>
   </div>
+  -->
 <% else %>
 
             
@@ -116,12 +193,6 @@
 </aside>
 
 
-<div class="row">
-<div class="fb-like"
-    data-share="true"
-    data-width="450"
-   data-show-faces="true"></div>
- 
  <h3 class = "center">Join <%= [2000, User.all.count].max %>+ artists.<hr></h2>
 
 
@@ -167,7 +238,7 @@
   </div>
 
    <div class="col-lg-10">
-    <input type="checkbox">* I agree to the <a href="#">terms and conditions</a>
+    <input type="checkbox" checked = "true">* I agree to the <a href="#">terms and conditions</a>
      <br/>
     <br/>
      </div>

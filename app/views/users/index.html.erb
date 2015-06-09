@@ -30,8 +30,10 @@
   <tbody>
         
         <% $i = 1 %>
-      <% @users.each do |user| %>
+      
        <% while $i <= @users.count  do %>
+       <% @users.each do |user| %>
+         <% if user.deleted_at == nil %>
       <tr>
        <td><%= $i %></td>
       <td><%= user.username %></td>
@@ -46,7 +48,7 @@
       <td><%= user.industry %></td>
       <td>Column content</td>
         <% $i +=1 %>
-        
+        <%end%>
     
       </tr>
       <%end%>

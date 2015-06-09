@@ -29,9 +29,9 @@
   <tbody>
 
         <% $i = 1 %>
-  <% @groups.each do |group| %>
+  
   <% until $i > @groups.count  do %>
-   
+    <% @groups.each do |group| %>
     <tr>
       <td><%= $i %></td>
       <td> <%= group.group_name %></td>

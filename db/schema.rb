@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150604030336) do
+ActiveRecord::Schema.define(version: 20150608094913) do
 
   create_table "comments", force: true do |t|
     t.string   "thor_name"
@@ -175,6 +175,7 @@ ActiveRecord::Schema.define(version: 20150604030336) do
     t.integer  "sign_in_count"
     t.datetime "deleted_at"
     t.integer  "score",                default: 0
+    t.boolean  "active",               default: true
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
