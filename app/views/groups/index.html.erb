@@ -1,7 +1,7 @@
 
 <div class="panel panel-primary">
   <div class="panel-heading">
-    <h3 class="panel-title">Hi <%= current_user.username %><%= current_user.email%> | <%= render 'shared/stats' %> | Your score is : | You belong to x groups | X invites pending</h3>
+    <h3 class="panel-title">Hi <%= current_user.username %><%= current_user.email%> | <%= render 'shared/stats' %> | Your score is : <%= current_user.score %> | You belong to x groups | X invites pending</h3>
   </div>
   <div class="panel-body">
      
@@ -35,7 +35,7 @@
     <tr>
       <td><%= $i %></td>
       <td> <%= group.group_name %></td>
-      <td><%= group.score %></td>
+      <td><%= 0 || group.score %></td>
       <td><%= group.expertise %></td>
       <td>Join|Leave</td>
       <td>Vote</td>

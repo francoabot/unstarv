@@ -5,6 +5,7 @@ class GroupsController < ApplicationController
  
   def index
     @groups = Group.all
+    
   end
 
   def template
@@ -54,7 +55,7 @@ end
 private 
 
 def group_params
-params.require(:group).permit(:group_name,:type,:privacy_type,:description)
+params.require(:group).permit(:group_name,:type,:privacy_type,:description, :country, :state, :score)
 
 end
 
