@@ -29,6 +29,10 @@ has_many :passive_relationships, class_name:  "Relationship",
 
 has_many :following, through: :active_relationships, source: :followed  
 has_many :followers, through: :passive_relationships, source: :follower
+
+    def current_user?(user)
+    user == current_user
+    end
     
     def active_for_authentication?
      super && !!active
