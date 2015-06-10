@@ -3540,7 +3540,12 @@ tbody.collapse.in {
   left: auto;
 }
 .dropup .caret,
+.navbar-fixed-bottom{
+  
+  margin-top: 20px;
+}
 .navbar-fixed-bottom .dropdown .caret {
+  margin-top: 20px;
   border-top: 0;
   border-bottom: 4px solid;
   content: "";
@@ -6785,3 +6790,6 @@ margin-right: auto ;
 color: #FFF !important;
 }
 
+.footer{
+  margin-top: 20px ;
+}
