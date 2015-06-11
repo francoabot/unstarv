@@ -157,7 +157,7 @@ Devise.setup do |config|
   # config.expire_auth_token_on_timeout = false
 
   config.omniauth :facebook, "1427074967594599" , "14591fbffa0f7b25606f0e6102635ac2"
-  #config.omniauth :twitter, "KEY", "SECRET"
+  config.omniauth :twitter, "nma5Y724udNbtZh8wnsP9QbyW", "2HDHiMrmZBIEBUWgGDe1HPgofmy0No2semCewp8vhUmv0nLZEo"
   #config.omniauth :linked_in, "KEY", "SECRET"
 
   # ==> Configuration for :lockable

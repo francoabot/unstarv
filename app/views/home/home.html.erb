@@ -7,7 +7,7 @@
 <% if user_signed_in? %>
  <div class="row submenu">  <div class="panel panel-primary col-lg-18">
   <div class="panel-heading">
-    <h3 class="panel-title">Hi <%= current_user.username %><%= current_user.email%> | <%= render 'shared/stats' %> | Your score is : | You belong to x groups | X invites pending</h3>
+    <h3 class="panel-title">Hi <%= current_user.username %><%= current_user.email%> | <%= render 'shared/stats' %> | Your score is : <%= current_user.score %> | You belong to x groups | X invites pending</h3>
   </div>
   <div class="panel-body">
         

@@ -17,14 +17,14 @@
       <th>Username</th>
       <th>Score</th>
       <th>Expertise</th>
-       <th>Follow | Unfollow</th>
+       
       <th>Vote</th>
       <th>Primary Group</th>
       <th>Country</th>
       <th>State</th>
       <th>Joined</th>
-      <th>Industry</th>
-      <th>Message</th>
+      <th>Artist ?</th>
+     
     </tr>
   </thead>
   <tbody>
@@ -36,17 +36,17 @@
          <% if user.deleted_at == nil %>
       <tr>
        <td><%= $i %></td>
-      <td><%= user.username %></td>
+      <td><%=link_to user.username.to_s, user %></td>
       <td><%= user.score %></td>
       <td><%= user.profession %></td>
-      <td> <%= render 'follow_form' %> </td>
+     
       <td>Vote me</td>
       <td>Artist or not</td>
       <td><%= user.country %></td>
       <td><%= user.state %></td>
       <td><%= time_ago_in_words(user.created_at) %> ago</td>
-      <td><%= user.industry %></td>
-      <td>Column content</td>
+      <td><%= user.artist %></td>
+      
         <% $i +=1 %>
         <%end%>
     

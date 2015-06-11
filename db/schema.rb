@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150610040710) do
+ActiveRecord::Schema.define(version: 20150610234834) do
 
   create_table "comments", force: true do |t|
     t.string   "thor_name"
@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(version: 20150610040710) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "picture"
+    t.integer  "group_id"
   end
 
   add_index "posts", ["user_id", "created_at"], name: "index_posts_on_user_id_and_created_at"
@@ -176,6 +177,7 @@ ActiveRecord::Schema.define(version: 20150610040710) do
     t.datetime "deleted_at"
     t.integer  "score",                default: 0
     t.boolean  "active",               default: true
+    t.string   "artist",               default: "No"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

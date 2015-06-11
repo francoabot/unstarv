@@ -29,6 +29,7 @@ end
 
   def show
     @group = Group.find(params[:id])
+    @post = @group.posts.new
   end
 
   def edit

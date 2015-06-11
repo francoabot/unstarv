@@ -42,7 +42,9 @@
       </br>
       <br>
       
-
+        <%= f.label :artist, "Are you an artist ?" %>
+      <%= f.select :artist, User::ARTIST, class: 'form-control' %>
+      <br/>
        
 
        <%= f.label :industry %>
