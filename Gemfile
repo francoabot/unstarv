@@ -15,6 +15,7 @@ gem 'devise'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'omniauth-linkedin'
+gem "omniauth-google-oauth2"
 gem 'mandrill-api'
  gem 'kendoui-rails'
 gem 'country_state_select'
@@ -52,7 +53,7 @@ end
 
 
 group :production do
-  gem 'pg',             '0.17.1'
+  gem 'pg'
   gem 'rails_12factor', '0.0.2'
 
 end

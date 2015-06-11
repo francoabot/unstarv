@@ -158,6 +158,7 @@ Devise.setup do |config|
 
   config.omniauth :facebook, "1427074967594599" , "14591fbffa0f7b25606f0e6102635ac2"
   config.omniauth :twitter, "nma5Y724udNbtZh8wnsP9QbyW", "2HDHiMrmZBIEBUWgGDe1HPgofmy0No2semCewp8vhUmv0nLZEo"
+  config.omniauth :google_oauth2, "730870449193-kt05apdrnjn2bin6l89jslq5irjntqd1.apps.googleusercontent.com", "JgMYR_BxmEpCNBEoNQ70jllb"
   #config.omniauth :linked_in, "KEY", "SECRET"
 
   # ==> Configuration for :lockable
