@@ -1,3 +1,4 @@
+ require "omniauth-google-oauth2"
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
@@ -155,7 +156,7 @@ Devise.setup do |config|
 
   # If true, expires auth token on session timeout.
   # config.expire_auth_token_on_timeout = false
-
+  
   config.omniauth :facebook, "1427074967594599" , "14591fbffa0f7b25606f0e6102635ac2"
   config.omniauth :twitter, "nma5Y724udNbtZh8wnsP9QbyW", "2HDHiMrmZBIEBUWgGDe1HPgofmy0No2semCewp8vhUmv0nLZEo"
   config.omniauth :google_oauth2, "730870449193-kt05apdrnjn2bin6l89jslq5irjntqd1.apps.googleusercontent.com", "JgMYR_BxmEpCNBEoNQ70jllb"
