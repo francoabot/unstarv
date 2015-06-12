@@ -9,7 +9,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
           sign_in @user, event: :authentication
           
 
-          
+          redirect_to root_path, event: :authentication
           
           set_flash_message(:notice, :success, kind: "#{provider}".capitalize) if is_navigational_format?
           
@@ -21,7 +21,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     }
   end
 
-  [:twitter, :facebook, :linked_in, :google_oauth2 ].each do |provider|
+  [:twitter, :facebook,:google_oauth2 ].each do |provider|
     provides_callback_for provider
   end
   

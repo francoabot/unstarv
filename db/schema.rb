@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150611212708) do
+ActiveRecord::Schema.define(version: 20150612050949) do
 
   create_table "comments", force: true do |t|
     t.string   "thor_name"
@@ -156,7 +156,7 @@ ActiveRecord::Schema.define(version: 20150611212708) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "remember_digest"
-    t.boolean  "admin",                default: false
+    t.boolean  "admin",                  default: false
     t.string   "remember_token"
     t.string   "name"
     t.string   "provider"
@@ -175,10 +175,12 @@ ActiveRecord::Schema.define(version: 20150611212708) do
     t.string   "last_sign_in_ip"
     t.integer  "sign_in_count"
     t.datetime "deleted_at"
-    t.integer  "score",                default: 0
-    t.boolean  "active",               default: true
-    t.string   "artist",               default: "No"
+    t.integer  "score",                  default: 0
+    t.boolean  "active",                 default: true
+    t.string   "artist",                 default: "No"
     t.string   "reset_password_token"
+    t.datetime "password_reset_sent_at"
+    t.datetime "reset_password_sent_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
