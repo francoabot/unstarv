@@ -9,7 +9,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
           sign_in @user, event: :authentication
           
 
-          redirect_to root_path, event: :authentication
+          
           
           set_flash_message(:notice, :success, kind: "#{provider}".capitalize) if is_navigational_format?
           
