@@ -16,7 +16,7 @@
     <%= image_tag post.picture.url if post.picture? %>
   </span>
   <span class="timestamp">
-    <small>Posted <%= time_ago_in_words(post.created_at) if post%> ago.</small>
+    <small>Posted <%= time_ago_in_words(post.created_at) if !post.created_at == nil? %> ago.</small>
     <% if current_user == post.user %>
       <%= link_to  post, method: :delete,
                                        data: { confirm: "You sure?" }  do %>

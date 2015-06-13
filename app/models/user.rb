@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
  groupify :named_group_member
 
 
-
+has_many :grouposts, dependent: :destroy
 has_many :posts, dependent: :destroy
 has_many :comments, dependent: :destroy
 has_many :active_relationships, class_name:  "Relationship",

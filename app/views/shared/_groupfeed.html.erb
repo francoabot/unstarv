@@ -1,0 +1,6 @@
+<% if @groupfeed_items.any? %>
+  <ol class="grouposts">
+    <%= render @groupfeed_items %>
+  </ol>
+  <%= will_paginate @groupfeed_items %>
+<% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150612050949) do
+ActiveRecord::Schema.define(version: 20150612104825) do
 
   create_table "comments", force: true do |t|
     t.string   "thor_name"
@@ -39,10 +39,36 @@ ActiveRecord::Schema.define(version: 20150612050949) do
   add_index "group_memberships", ["group_name"], name: "index_group_memberships_on_group_name"
   add_index "group_memberships", ["member_id", "member_type"], name: "index_group_memberships_on_member_id_and_member_type"
 
+  create_table "group_posts", force: true do |t|
+    t.text     "content"
+    t.integer  "group_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "group_posts", ["group_id", "created_at"], name: "index_group_posts_on_group_id_and_created_at"
+  add_index "group_posts", ["group_id"], name: "index_group_posts_on_group_id"
+  add_index "group_posts", ["user_id", "created_at"], name: "index_group_posts_on_user_id_and_created_at"
+  add_index "group_posts", ["user_id"], name: "index_group_posts_on_user_id"
+
   create_table "groupes", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "grouposts", force: true do |t|
+    t.text     "content"
+    t.integer  "group_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "grouposts", ["group_id", "created_at"], name: "index_grouposts_on_group_id_and_created_at"
+  add_index "grouposts", ["group_id"], name: "index_grouposts_on_group_id"
+  add_index "grouposts", ["user_id", "created_at"], name: "index_grouposts_on_user_id_and_created_at"
+  add_index "grouposts", ["user_id"], name: "index_grouposts_on_user_id"
 
   create_table "groups", force: true do |t|
     t.string  "type"

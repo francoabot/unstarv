@@ -17,32 +17,42 @@
         <%= @group.description %> 
 
          <br/>
+         </section>
 
          <section>
           <br/>
 
 <h3><a id="newposting">Post in group ?
-                                       <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></h3></a>
+                                       <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></h3>
 
 
 
-<section class= "postform">
-<%= form_for( @post, html: { multipart: true }) do |f| %>
-  <%= render 'shared/error_messages', object: f.object %>
-  
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.text_area :body, placeholder: "Compose your Post..." %>
-  </div>
-  <%= f.submit "Post", class: "btn btn-primary gradient" %>
-  <span class="picture">
-    <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
-  </span>
+<span class="post_form">
+
+
+<%= form_for  [@group, @group.grouposts.build] do |f| %>
+ 
+  <p>
+    <%= f.label :content, "Your Posts" %><br/>
+    <%= f.text_area :content %>
+  </p>
+  <p>
+    <%= f.submit 'Submit', class: 'btn btn-primary' %>
+  </p>
 <% end %>
-</section>
+
+   
+ </span>
+ </section>
+ </aside>
+
+
+
+
+
+
+
+
 
 
 
@@ -57,23 +67,31 @@
 
 
 
-         </section>
+        
 
 
 
-
-        <div class="fb-follow" data-href="http://unstarv.herokuapp.com/" data-height="150" data-colorscheme="light" data-layout="standard" data-show-faces="true"></div>
       
-    </section>
+      
+   
 
     
-
-  </aside>
 
   <div class="col-md-8">
-  <p> Join | Leave </p>
+  <p>
+  <% if current_user.in_group?(@group)%>
+  <%= link_to "Leave this group", leave_group_group_path, class: 'btn btn-primary' %>
+  <%else%>
+  <%= link_to "Join this group", join_group_group_path, class: 'btn btn-primary' %>
+  <%end%>
+  </p>
+  
+
+  <section>
+       
+  </section>
     
-      
+    
    
     <br>
     <br>

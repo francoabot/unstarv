@@ -49,8 +49,14 @@ get 'users/show'
       member { post :vote }
     end
     end
-
-  resources :groups
+  
+  resources :groups do
+    member do
+      get :join_group ,:leave_group    
+    end
+    resources :grouposts,          only: [:create, :destroy]
+  
+ end
   resources :relationships,       only: [:create, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
