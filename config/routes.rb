@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'activities/index'
+
   root 'home#home' 
   
   get 'groups/new'
@@ -28,7 +30,9 @@ Rails.application.routes.draw do
  
 
   # devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks' }
+resources :activities
 get 'users/show'
+
   resources :users do
     member do
       get :following, :followers
@@ -40,7 +44,7 @@ get 'users/show'
   get 'terms' => 'home#terms'
   get 'privacy' => 'home#privacy'
   get 'about' => 'home#about'
-  
+  resources :group_memberships
     
   
   resources :posts  do
@@ -54,10 +58,13 @@ get 'users/show'
     member do
       get :join_group ,:leave_group    
     end
-    resources :grouposts,          only: [:create, :destroy]
+    resources :grouposts,          only: [:create, :destroy, :show] do
+        resources :groupcomments
+    end
   
  end
   resources :relationships,       only: [:create, :destroy]
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

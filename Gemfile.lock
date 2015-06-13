@@ -149,6 +149,11 @@ GEM
       omniauth-oauth (~> 1.1)
     orm_adapter (0.5.0)
     pg (0.17.1-x86-mingw32)
+    public_activity (1.4.2)
+      actionpack (>= 3.0.0)
+      activerecord (>= 3.0)
+      i18n (>= 0.5.0)
+      railties (>= 3.0.0)
     rack (1.5.2)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -237,6 +242,7 @@ DEPENDENCIES
   omniauth-linkedin
   omniauth-twitter
   pg
+  public_activity
   rails (= 4.1.8)
   rails_12factor (= 0.0.2)
   sass-rails (~> 4.0.3)

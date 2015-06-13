@@ -3,7 +3,8 @@ class GroupostsController < ApplicationController
 
 
 
-
+def show
+end
 def create
 	@group = Group.find(params[:group_id])
     @groupost = @group.grouposts.build(groupost_params) #Find way to provide group id

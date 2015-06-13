@@ -1,0 +1,7 @@
+updated the group
+
+<% if activity.trackable %>
+  <%= link_to activity.trackable.group_name, activity.trackable %>
+<% else %>
+  which has since been removed
+<% end %>

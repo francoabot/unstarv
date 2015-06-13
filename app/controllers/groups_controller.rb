@@ -29,9 +29,10 @@ end
 
   def show
     
-
+   
     @group = Group.find(params[:id])
     @groupost = @group.grouposts.build
+    @Post = @group.grouposts
   end
 
   def edit

@@ -1,9 +1,14 @@
 class Group < ActiveRecord::Base
+	include PublicActivity::Model
+    tracked owner: ->(controller, model) { controller && controller.current_user }
+
+
 	self.inheritance_column = nil
 	groupify :group, members: [:users, :assignments], default_members: :users
 	
 	has_many :grouposts, dependent: :destroy
-
+	has_many :groupcomments, :through => :grouposts,  dependent: :destroy
+    
 
 
 	TYPE = ["Immediate Feedback needed", "Artistic Interest","Project Mates Matching"]

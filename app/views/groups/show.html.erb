@@ -10,10 +10,20 @@
         <br/>
         <strong>State: </strong> <%=  @group.state || None %>
         <br/>
-        <strong>Type: </strong> <%= @group.type %>
-
+        <strong>Type: </strong> <%= @group.type %><br/><br/>
+        <strong>Group Members: </strong><ul><br><% User.in_group(@group).all.each do |user| %>
+             <li> <%= link_to user.username || user.email, user %></li>
+             <%end%>
+             </ul><br/>
+   
+             <strong>Members in your groups: </strong><ul><br>
+               <% User.shares_any_group(current_user).all.each do |user| %>
+                  
+             <li> <%=link_to user.username || user.email, user if user != current_user %></li>
+             <%end%>
+             </ul><br/>
         <hr>
-        <strong> Description: </strong><br/>
+        <strong>Group Description: </strong><br/>
         <%= @group.description %> 
 
          <br/>
@@ -35,12 +45,13 @@
   <p>
     <%= f.label :content, "Your Posts" %><br/>
     <%= f.text_area :content %>
+
   </p>
   <p>
     <%= f.submit 'Submit', class: 'btn btn-primary' %>
   </p>
 <% end %>
-
+ 
    
  </span>
  </section>
@@ -88,7 +99,40 @@
   
 
   <section>
-       
+  <ul>
+  <% if @group.grouposts.any? %>
+  <% @group.grouposts.all.each do |post|  %>
+  <span class="content">
+    <li><%= post.content %></li>
+    </span>
+    <span class="timestamp">
+    <small><strong>Posted </strong><%= time_ago_in_words(post.created_at) if !post.created_at == nil? %> ago by <strong><%=link_to  post.user.firtname || post.user.username, post.user %></strong>.<br></small>
+    
+    <br>
+    
+    <%= form_for [ @group, post, post.groupcomments.build] do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+    <div class="field">
+    <%= f.text_area :body, placeholder: "Comment here..." %>
+    </div>
+    <%= f.submit "Comment", class: "btn btn-primary" %>
+      <% end %>
+      <br>
+     
+       <% post.groupcomments.all.each do |comment| %>
+       <li><span class="comment"><%= comment.body %></span></li>
+     <br/>
+
+      <h4><small>Comment by <%= comment.user.username || comment.user.firtname if !comment.user.nil? %>  <em><span><small><strong><%=time_ago_in_words(comment.created_at) if !comment.created_at.nil?%> ago</strong></small> </small></h4>
+    
+    
+     <% end%>
+
+      <br><br>
+       <% end %>
+       <br><br>
+       <%end%>
+    
   </section>
     
     
