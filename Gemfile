@@ -20,7 +20,10 @@ gem "omniauth-google-oauth2"
 gem 'mandrill-api'
  gem 'kendoui-rails'
 gem 'country_state_select'
-
+gem 'mailboxer'
+gem 'gravatar_image_tag'
+gem 'chosen-rails'
+gem 'jquery-turbolinks'
 
 gem 'activerecord-reputation-system', require: 'reputation_system'
 # Use sqlite3 as the database for Active Record

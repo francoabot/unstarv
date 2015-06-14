@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
 include PublicActivity::Model
 tracked owner: ->(controller, model) { controller && controller.current_user }
 
-
+acts_as_messageable
 
   TEMP_EMAIL_PREFIX = 'change@me'
   TEMP_EMAIL_REGEX = /\Achange@me/
@@ -36,6 +36,27 @@ has_many :following, through: :active_relationships, source: :followed
 has_many :followers, through: :passive_relationships, source: :follower
 
 ARTIST = ["No", "Want to hire artists", "Short story writer", "Novelist",  "Poet",  "Photographer", "Comedian", "Comic writer", "Screenwriter", "Singer",  "Songwriter", "Painter",  "Graphic Designer",  "Illustrator",  "Actor"]
+
+
+
+ acts_as_messageable
+
+  def mailboxer_email(object)
+    email
+  end
+   
+
+    #def name
+      # return self.username || self.firtname
+    #end
+    
+    #def mailboxer_email(object)
+  #Check if an email should be sent for that object
+  # if pendin_email
+  #return "define_email@on_your.model"
+  #if false
+  #return nil
+#end
 
     def current_user?(user)
     user == current_user

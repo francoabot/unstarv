@@ -1,7 +1,7 @@
 class Group < ActiveRecord::Base
 	include PublicActivity::Model
     tracked owner: ->(controller, model) { controller && controller.current_user }
-
+    acts_as_messageable
 
 	self.inheritance_column = nil
 	groupify :group, members: [:users, :assignments], default_members: :users

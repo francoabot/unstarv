@@ -11,8 +11,11 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require bootstrap
 //= require turbolinks
-//= require country_state_select
+//= require chosen-jquery
+//= require jquery.image-select
+//= require messages
 //= require_tree .
