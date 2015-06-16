@@ -34,7 +34,7 @@
     <% @groups.each do |group| %>
     <tr>
       <td><%= $i %></td>
-      <td> <%= link_to group.group_name, group %></td>
+      <td><%= gravatar_for_group(group) %><%= link_to group.group_name, group %></td>
       <td><%= 0 || group.score %></td>
       <td><%= group.expertise %></td>
       <td>Join|Leave</td>

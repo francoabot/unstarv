@@ -3,7 +3,7 @@
 <div class="row">
   <aside class="col-md-4">
     <section class="group_info">
-      
+        <%= gravatar_for_group @group %>
         <h3><%=  @group.group_name %></h3>
        
         <strong>Country: </strong><%= @group.country || None %>
