@@ -37,7 +37,7 @@
          <% if user.deleted_at == nil %>
       <tr>
        <td><%= $i %></td>
-      <td><%=link_to user.username.to_s, user %></td>
+      <td><%= gravatar_for user %><%=link_to user.username.to_s, user %></td>
       <td><%= user.score %></td>
       <td><%= user.profession %></td>
      
@@ -47,7 +47,7 @@
       <td><%= user.state %></td>
       <td><%= time_ago_in_words(user.created_at) %> ago</td>
       <td><%= user.artist %></td>
-      <td>  <% unless current_user == user %>
+       <td>  <% unless current_user == user %>
         <%= link_to 'Send message', new_message_path(to: user.id), class: 'btn btn-default btn-sm' %>
         <% end %></td>
       
